@@ -27,3 +27,26 @@ $ ./litellm-scan.sh
 
 #### **pth-scan.py**
 Mas mesmo com a remoção da biblioteca litellm, outra que dependa dela, ou mesmo a atualização de todo o sistema, arquivos .pth comprometidos podem ter sido deixados no sistema, então entra em cena o `pth-scan.py` , para verificar a existência de arquivos `.pth` que possuam execução de código. 
+
+### EN
+I developed these tools for learning purposes. This means there are likely much better ways to achieve the same results, and they are not intended to be comprehensive scanning tools for detecting well-known, pre-mapped persistence mechanisms.
+
+#### **litellm-scan.sh**
+Checking for the presence of the litellm library, as well as libraries that depend on it, is an obvious step to easily detect a possible compromise and identify which specific library is involved.
+
+The litellm-scan.sh script handles this role. It verifies if the litellm library is installed and checks its version to identify direct compromise. Additionally, it scans all installed libraries to see if any of them list litellm as a dependency.
+
+Now, why check other libraries if litellm isn't installed? Wouldn't that already rule out the compromise? Not necessarily. Removing litellm does not automatically remove the libraries that depend on it. Furthermore, a developer might install a package using --no-deps for testing; while this wouldn't install litellm immediately, it leaves the system ready to pull it in during a future update.
+
+To test:
+```
+$ python3 -m venv /tmp/test-env
+$ source /tmp/test-env/bin/activate
+$ pip install --no-deps litellm-cost-tracker
+$ ./litellm-scan.sh
+```
+
+#### **pth-scan.py**
+Even after removing the litellm library, its dependencies, or updating the entire system, compromised .pth files might still remain on the system. This is where pth-scan.py comes in: it scans for the existence of .pth files that contain executable code.
+
+
