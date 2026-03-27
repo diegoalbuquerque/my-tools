@@ -6,7 +6,7 @@ A collection of tools that I wrote for my help or study.
 ### Pt-BR
 Estas tools eu desenvolvi para aprendizado, ou seja, deve ter formas muito melhores de fazer o mesmo e nem tão pouco são voltadas a serem ferramentas de varredura completa do ataque em busca de persistências já bem mapeadas e conhecidas. 
 
-#### **litellm-scan.sh**
+#### >> **litellm-scan.sh**
 
 Procurar pela existência ou não da biblioteca litellm, assim como as bibliotecas que dela dependam, é uma ação óbvia que serve para detectarmos facilmente um possível comprometimento e através de qual biblioteca.
 
@@ -25,13 +25,13 @@ $ pip install --no-deps litellm-cost-tracker
 $ ./litellm-scan.sh
 ```
 
-#### **pth-scan.py**
+#### >> **pth-scan.py**
 Mas mesmo com a remoção da biblioteca litellm, outra que dependa dela, ou mesmo a atualização de todo o sistema, arquivos .pth comprometidos podem ter sido deixados no sistema, então entra em cena o `pth-scan.py` , para verificar a existência de arquivos `.pth` que possuam execução de código. 
 
 ### EN
 I developed these tools for learning purposes. This means there are likely much better ways to achieve the same results, and they are not intended to be comprehensive scanning tools for detecting well-known, pre-mapped persistence mechanisms.
 
-#### **litellm-scan.sh**
+#### >> **litellm-scan.sh**
 Checking for the presence of the litellm library, as well as libraries that depend on it, is an obvious step to easily detect a possible compromise and identify which specific library is involved.
 
 The litellm-scan.sh script handles this role. It verifies if the litellm library is installed and checks its version to identify direct compromise. Additionally, it scans all installed libraries to see if any of them list litellm as a dependency.
@@ -46,7 +46,7 @@ $ pip install --no-deps litellm-cost-tracker
 $ ./litellm-scan.sh
 ```
 
-#### **pth-scan.py**
+#### >> **pth-scan.py**
 Even after removing the litellm library, its dependencies, or updating the entire system, compromised .pth files might still remain on the system. This is where pth-scan.py comes in: it scans for the existence of .pth files that contain executable code.
 
 
